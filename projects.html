@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты - ПромТехСофт | Портфолио работ</title>
+    <meta name="description" content="Портфолио проектов ПромТехСофт: автоматизация производств, 3D-моделирование в КОМПАС-3D и Siemens NX, разработка ПО на заказ.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">◇</span>
+                    <div>
+                        <h1>Пром<span>Тех</span>Софт</h1>
+                        <p class="tagline">Инженерные решения</p>
+                    </div>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="projects.html" class="active">Проекты</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+                <button class="burger" id="burger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: auto; padding: 6rem 0 4rem;">
+            <div class="container">
+                <span class="badge fade-in">📂 Портфолио</span>
+                <h2 class="fade-in">Наши <span class="highlight">проекты</span></h2>
+                <p class="fade-in">Реальные задачи, которые мы решили для наших клиентов</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <!-- Фильтр -->
+                <div class="filter-buttons fade-in" style="text-align: center; margin-bottom: 3rem;">
+                    <button class="filter-btn active" data-filter="all">Все проекты</button>
+                    <button class="filter-btn" data-filter="automation">Автоматизация</button>
+                    <button class="filter-btn" data-filter="modeling">3D-моделирование</button>
+                    <button class="filter-btn" data-filter="software">ПО на заказ</button>
+                </div>
+
+                <!-- Сетка проектов -->
+                <div class="projects-grid">
+                    <article class="project-card fade-in" data-category="automation">
+                        <div class="project-image" style="background: linear-gradient(135deg, #0a1628, #1a2d47);">
+                            <span>🏭</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Автоматизация</span>
+                            <h3>SCADA-система для машиностроительного завода</h3>
+                            <p>Разработали систему диспетчеризации и мониторинга для 150+ станков с ЧПУ. Интеграция с существующей ERP-системой.</p>
+                            <div class="project-results">
+                                <span>↑ 40% производительность</span>
+                                <span>↓ 25% простои</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in" data-category="modeling">
+                        <div class="project-image" style="background: linear-gradient(135deg, #132238, #1a2d47);">
+                            <span>🚀</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">3D-моделирование</span>
+                            <h3>Проектирование аэрокосмического компонента в Siemens NX</h3>
+                            <p>Создали высокоточные 3D-модели и полный комплект конструкторской документации для деталей авиационного двигателя.</p>
+                            <div class="project-results">
+                                <span>Точность 0.001 мм</span>
+                                <span>50+ чертежей</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in" data-category="software">
+                        <div class="project-image" style="background: linear-gradient(135deg, #1a2d47, #0a1628);">
+                            <span>📦</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">ПО на заказ</span>
+                            <h3>Система управления складом (WMS)</h3>
+                            <p>Разработали WMS-систему с интеграцией в 1С и оборудованием штрихкодирования. Автоматизация приёмки, хранения и отгрузки.</p>
+                            <div class="project-results">
+                                <span>↑ 60% скорость обработки</span>
+                                <span>0 ошибок учёта</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in" data-category="automation">
+                        <div class="project-image" style="background: linear-gradient(135deg, #0a1628, #132238);">
+                            <span>⚡</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Автоматизация</span>
+                            <h3>АСУ ТП для нефтеперерабатывающего завода</h3>
+                            <p>Внедрили автоматизированную систему управления технологическим процессом переработки нефти. 500+ контрольных точек.</p>
+                            <div class="project-results">
+                                <span>↑ 30% эффективность</span>
+                                <span>↓ 40% аварийных остановок</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in" data-category="modeling">
+                        <div class="project-image" style="background: linear-gradient(135deg, #1a2d47, #132238);">
+                            <span>⚙️</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">3D-моделирование</span>
+                            <h3>Реверс-инжиниринг деталей в КОМПАС-3D</h3>
+                            <p>Восстановили конструкторскую документацию по образцам импортных деталей. Создали 3D-модели и чертежи по ЕСКД.</p>
+                            <div class="project-results">
+                                <span>30+ деталей</span>
+                                <span>100% точность</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in" data-category="software">
+                        <div class="project-image" style="background: linear-gradient(135deg, #0a1628, #1a2d47);">
+                            <span>📊</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">ПО на заказ</span>
+                            <h3>MES-система для пищевого производства</h3>
+                            <p>Создали систему управления производственными процессами: отслеживание партий, контроль качества, отчётность.</p>
+                            <div class="project-results">
+                                <span>↑ 25% выпуск продукции</span>
+                                <span>↓ 50% брака</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta fade-in">
+            <div class="container">
+                <h2>Хотите такой же результат?</h2>
+                <p>Обсудим ваш проект и найдём оптимальное решение</p>
+                <a href="contacts.html" class="btn btn-primary">Обсудить проект →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ПромТехСофт</h4>
+                    <p>Разработка ПО и 3D-моделирование</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="services.html">Автоматизация</a></li>
+                        <li><a href="services.html">КОМПАС-3D</a></li>
+                        <li><a href="services.html">Siemens NX</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>📍 Москва, ул. Инженерная, 15</p>
+                    <p>📞 +7 (495) 123-45-67</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 <strong>ПромТехСофт</strong>. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+
+    <style>
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--gray-200);
+            background: var(--white);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .project-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.2);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .project-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .project-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-results {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .project-results span {
+            background: var(--gray-100);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .project-card.hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Фильтр проектов
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
