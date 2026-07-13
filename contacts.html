@@ -424,13 +424,33 @@
 
         // Модальное окно
         function openFormModal() {
-            const iframe = document.getElementById('googleFormFrame');
-            if (!iframe.src) {
-                iframe.src = FORM_URL;
-            }
-            document.getElementById('formModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+        const modal = document.getElementById('formModal');
+        const modalBody = modal.querySelector('.modal-body');
+        const existingIframe = document.getElementById('googleFormFrame');
+    
+        // Удаляем старый iframe, если есть
+        if (existingIframe) {
+        existingIframe.remove();
         }
+        
+        // Создаём новый iframe
+        const iframe = document.createElement('iframe');
+        iframe.id = 'googleFormFrame';
+        iframe.src = FORM_URL;
+        iframe.style.width = '100%';
+        iframe.style.height = '65vh';
+        iframe.style.minHeight = '550px';
+        iframe.style.border = 'none';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', 'true');
+        
+        // Вставляем iframe
+        modalBody.appendChild(iframe);
+        
+        // Показываем модальное окно
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 
         function closeFormModal() {
             document.getElementById('formModal').classList.remove('active');
