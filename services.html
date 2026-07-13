@@ -6,87 +6,98 @@
     <title>Услуги - ПромТехСофт | Автоматизация и 3D-моделирование</title>
     <meta name="description" content="Услуги автоматизации производств, 3D-моделирования в КОМПАС-3D и Siemens NX, разработка ПО на заказ.">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>ПромТехСофт</h1>
-                <p>Инженерные решения</p>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="services.html">Услуги</a></li>
-                <li><a href="about.html">О компании</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
-            <div class="burger">☰</div>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Пром<span>Тех</span>Софт</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html" class="active">Услуги</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+                <button class="burger" id="burger">☰</button>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <h2>Наши услуги</h2>
-            <p>Полный цикл промышленной разработки</p>
+            <div class="container">
+                <span class="badge">Что мы предлагаем</span>
+                <h2>Наши услуги</h2>
+                <p>Полный цикл промышленной разработки</p>
+            </div>
         </section>
 
         <section>
-            <h2>Что мы предлагаем</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>⚙️ Автоматизация производств</h3>
-                    <p>Разработка ПО для управления технологическими процессами</p>
-                    <ul style="text-align: left; margin-top: 1rem;">
-                        <li>SCADA-системы</li>
-                        <li>АСУ ТП</li>
-                        <li>Интеграция с оборудованием</li>
-                        <li>Диспетчеризация</li>
-                    </ul>
-                    <a href="contacts.html" class="btn" style="margin-top: 1rem;">Заказать</a>
-                </div>
-
-                <div class="card">
-                    <h3>📐 КОМПАС-3D</h3>
-                    <p>Параметрическое 3D-моделирование</p>
-                    <ul style="text-align: left; margin-top: 1rem;">
-                        <li>Создание 3D-моделей</li>
-                        <li>Конструкторская документация</li>
-                        <li>Сборки любой сложности</li>
-                        <li>Оформление по ЕСКД</li>
-                    </ul>
-                    <a href="contacts.html" class="btn" style="margin-top: 1rem;">Заказать</a>
-                </div>
-
-                <div class="card">
-                    <h3>🔷 Siemens NX</h3>
-                    <p>Высокоточное проектирование</p>
-                    <ul style="text-align: left; margin-top: 1rem;">
-                        <li>Твердотельное моделирование</li>
-                        <li>Поверхностное моделирование</li>
-                        <li>Программы для ЧПУ</li>
-                        <li>Инженерный анализ</li>
-                    </ul>
-                    <a href="contacts.html" class="btn" style="margin-top: 1rem;">Заказать</a>
+            <div class="container">
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">⚙️</div>
+                        <h3>Автоматизация производств</h3>
+                        <p>Разработка ПО для управления технологическими процессами. SCADA-системы, АСУ ТП, интеграция с оборудованием.</p>
+                        <ul style="text-align: left; margin: 1rem 0; list-style-position: inside;">
+                            <li>Диспетчеризация производства</li>
+                            <li>Мониторинг оборудования</li>
+                            <li>Управление техпроцессами</li>
+                        </ul>
+                        <a href="contacts.html" class="btn btn-primary">Заказать</a>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">📐</div>
+                        <h3>3D-моделирование в КОМПАС-3D</h3>
+                        <p>Параметрическое моделирование, конструкторская документация по ЕСКД.</p>
+                        <ul style="text-align: left; margin: 1rem 0; list-style-position: inside;">
+                            <li>Создание 3D-моделей</li>
+                            <li>Сборочные чертежи</li>
+                            <li>Спецификации</li>
+                        </ul>
+                        <a href="contacts.html" class="btn btn-primary">Заказать</a>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">🔷</div>
+                        <h3>Проектирование в Siemens NX</h3>
+                        <p>Высокоточное поверхностное и твердотельное моделирование.</p>
+                        <ul style="text-align: left; margin: 1rem 0; list-style-position: inside;">
+                            <li>Программы для ЧПУ</li>
+                            <li>Инженерный анализ</li>
+                            <li>Оптимизация конструкций</li>
+                        </ul>
+                        <a href="contacts.html" class="btn btn-primary">Заказать</a>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">🖥️</div>
+                        <h3>Разработка ПО на заказ</h3>
+                        <p>Создание уникальных программных продуктов под задачи предприятия.</p>
+                        <ul style="text-align: left; margin: 1rem 0; list-style-position: inside;">
+                            <li>Техническое задание</li>
+                            <li>Разработка и тестирование</li>
+                            <li>Внедрение и обучение</li>
+                        </ul>
+                        <a href="contacts.html" class="btn btn-primary">Заказать</a>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>ПромТехСофт</h4>
-                <p>Разработка ПО и 3D-моделирование</p>
-            </div>
-            <div class="footer-col">
-                <h4>Контакты</h4>
-                <p>📧 info@promtechsoft.ru</p>
-                <p>📞 +7 (495) 123-45-67</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 ПромТехСофт. Все права защищены.</p>
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center;">© 2024 <strong>ПромТехСофт</strong>. Все права защищены.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('burger').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

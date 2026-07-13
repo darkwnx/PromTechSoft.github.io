@@ -3,97 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ПромТехСофт - Автоматизация производств и 3D-моделирование</title>
-    <meta name="description" content="Профессиональная разработка ПО для автоматизации производств. 3D-моделирование в КОМПАС-3D и Siemens NX.">
+    <title>ПромТехСофт — Разработка ПО для автоматизации производств и 3D-моделирование</title>
+    <meta name="description" content="Профессиональная разработка программного обеспечения для автоматизации производств. Услуги 3D-моделирования в КОМПАС-3D и Siemens NX. Проектирование на заказ.">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>ПромТехСофт</h1>
-                <p>Инженерные решения</p>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="services.html">Услуги</a></li>
-                <li><a href="about.html">О компании</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
-            <div class="burger">☰</div>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Пром<span>Тех</span>Софт</h1>
+                    <p class="tagline">Инженерные решения • Разработка ПО • 3D-моделирование</p>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+                <button class="burger" id="burger">☰</button>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <h2>Разработка ПО для автоматизации производств</h2>
-            <p>Профессиональное 3D-моделирование в КОМПАС-3D и Siemens NX</p>
-            <a href="contacts.html" class="btn">Обсудить проект</a>
-        </section>
-
-        <section class="features">
-            <h2>Наши компетенции</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>⚙️ Автоматизация</h3>
-                    <p>SCADA-системы, АСУ ТП, интеграция с оборудованием</p>
+            <div class="container">
+                <span class="badge">Ведущий разработчик промышленного ПО</span>
+                <h2>Создаём будущее <span class="highlight">промышленности</span> сегодня</h2>
+                <p>Разрабатываем ПО для автоматизации производств любой сложности. Проектируем в <strong>КОМПАС-3D</strong> и <strong>Siemens NX</strong> с ювелирной точностью.</p>
+                <div class="hero-buttons">
+                    <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+                    <a href="services.html" class="btn btn-outline">Наши услуги</a>
                 </div>
-                <div class="card">
-                    <h3>📐 КОМПАС-3D</h3>
-                    <p>Параметрическое моделирование, документация ЕСКД</p>
-                </div>
-                <div class="card">
-                    <h3>🔷 Siemens NX</h3>
-                    <p>Высокоточное моделирование для ЧПУ</p>
-                </div>
-                <div class="card">
-                    <h3>🖥️ ПО на заказ</h3>
-                    <p>Уникальные решения для вашего производства</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">10+</span>
+                        <span class="stat-label">лет опыта</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">200+</span>
+                        <span class="stat-label">проектов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">50+</span>
+                        <span class="stat-label">клиентов</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="stats">
-            <div class="stat">
-                <span>10+</span>
-                <p>лет опыта</p>
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge">Что мы предлагаем</span>
+                    <h2>Наши услуги</h2>
+                    <p>Полный цикл промышленной разработки: от анализа задачи до технической поддержки</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">⚙️</div>
+                        <h3>Автоматизация производств</h3>
+                        <p>Разработка специализированного ПО для управления технологическими процессами. SCADA-системы, АСУ ТП, интеграция с оборудованием.</p>
+                        <a href="services.html" class="service-link">Подробнее →</a>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">📐</div>
+                        <h3>3D-моделирование в КОМПАС-3D</h3>
+                        <p>Параметрическое моделирование, конструкторская документация по ЕСКД, сборки любой сложности в среде КОМПАС-3D.</p>
+                        <a href="services.html" class="service-link">Подробнее →</a>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">🔷</div>
+                        <h3>Проектирование в Siemens NX</h3>
+                        <p>Высокоточное поверхностное и твердотельное моделирование, подготовка управляющих программ для ЧПУ.</p>
+                        <a href="services.html" class="service-link">Подробнее →</a>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">🖥️</div>
+                        <h3>Разработка ПО на заказ</h3>
+                        <p>Создание уникальных программных продуктов под задачи предприятия: от ТЗ до внедрения и обучения персонала.</p>
+                        <a href="services.html" class="service-link">Подробнее →</a>
+                    </article>
+                </div>
             </div>
-            <div class="stat">
-                <span>200+</span>
-                <p>проектов</p>
-            </div>
-            <div class="stat">
-                <span>50+</span>
-                <p>клиентов</p>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Готовы начать проект?</h2>
+                <p>Свяжитесь с нами сегодня, и мы предложим оптимальное решение для вашего производства</p>
+                <a href="contacts.html" class="btn btn-primary">Связаться с нами</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>ПромТехСофт</h4>
-                <p>Разработка ПО и 3D-моделирование с 2014 года</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ПромТехСофт</h4>
+                    <p>Разработка ПО для автоматизации производств и 3D-моделирование с 2014 года</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="services.html">Автоматизация</a></li>
+                        <li><a href="services.html">КОМПАС-3D</a></li>
+                        <li><a href="services.html">Siemens NX</a></li>
+                        <li><a href="services.html">ПО на заказ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="projects.html">Проекты</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>📍 Москва, ул. Инженерная, 15</p>
+                    <p>📞 +7 (495) 123-45-67</p>
+                    <p>✉️ info@promtechsoft.ru</p>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Контакты</h4>
-                <p>📧 info@promtechsoft.ru</p>
-                <p>📞 +7 (495) 123-45-67</p>
-                <p>📍 Москва, ул. Инженерная, 15</p>
+            <div class="footer-bottom">
+                <p>© 2024 <strong>ПромТехСофт</strong>. Все права защищены. Проектирование в КОМПАС-3D и Siemens NX.</p>
             </div>
-            <div class="footer-col">
-                <h4>Услуги</h4>
-                <ul>
-                    <li>Автоматизация производств</li>
-                    <li>3D-моделирование КОМПАС-3D</li>
-                    <li>Проектирование Siemens NX</li>
-                    <li>Разработка ПО на заказ</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 ПромТехСофт. Все права защищены.</p>
         </div>
     </footer>
+
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        document.getElementById('burger').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTop');
+            btn.classList.toggle('visible', window.scrollY > 500);
+        });
+
+        document.getElementById('scrollTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
