@@ -55,3 +55,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// Модальное окно с Google Формой
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('applicationModal');
+    const closeBtn = document.querySelector('.close-modal');
+    
+    // Функция для открытия модального окна
+    function openApplicationModal() {
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+        }
+    }
+    
+    // Функция для закрытия модального окна
+    function closeApplicationModal() {
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Возвращаем прокрутку
+        }
+    }
+    
+    // Закрытие по клику на крестик
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeApplicationModal);
+    }
+    
+    // Закрытие по клику вне модального окна
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeApplicationModal();
+        }
+    });
+    
+    // Закрытие по нажатию клавиши Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            closeApplicationModal();
+        }
+    });
+    
+    // Привязываем функцию открытия к кнопке "Подать заявление" в контактах
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+        const applyButton = contactSection.querySelector('.btn');
+        if (applyButton) {
+            applyButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                openApplicationModal();
+            });
+        }
+    }
+});
