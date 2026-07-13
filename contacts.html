@@ -8,6 +8,159 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-card-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .form-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .form-container {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-container h3 {
+            padding: 2rem 2rem 0;
+            text-align: center;
+            color: var(--primary);
+        }
+        
+        .form-container > p {
+            padding: 0 2rem;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-container iframe {
+            display: block;
+            width: 100%;
+            height: 750px;
+            border: none;
+        }
+        
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .info-item .icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            width: 45px;
+            text-align: center;
+        }
+        
+        .info-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+        
+        .info-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .alert-box {
+            background: var(--gray-100);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .alert-box strong {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 350px;
+            background: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            border-radius: var(--radius);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header" id="header">
@@ -76,58 +229,49 @@
             </div>
         </section>
 
-        <!-- Форма и карта -->
+        <!-- Форма + Информация -->
         <section style="background: var(--white); padding: 3rem 0;">
             <div class="container">
-                <div class="contact-grid-2col fade-in">
-                    <!-- Левая колонка - Google Форма -->
-                    <div class="form-wrapper">
-                        <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Оставить заявку</h3>
-                        <p style="text-align: center; color: var(--text-light); margin-bottom: 1.5rem;">
-                            Заполните форму, и мы свяжемся с вами в течение 2 часов
-                        </p>
+                <div class="form-section fade-in">
+                    <!-- Левая колонка: Google Форма -->
+                    <div class="form-container">
+                        <h3>Оставить заявку</h3>
+                        <p>Заполните форму, и мы свяжемся с вами в течение 2 часов</p>
                         
-                        <!-- ВСТАВЬТЕ СЮДА ССЫЛКУ ИЗ GOOGLE FORMS -->
-                        <!-- Замените src="..." на вашу ссылку -->
-                        <iframe 
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSecd_2opjvhv7uQhgDBlAlqW1Lt7-i7pumOCbQkP0hyyz7czQ/viewform?embedded=true" 
-                            width="100%" 
-                            height="600" 
-                            frameborder="0" 
-                            marginheight="0" 
-                            marginwidth="0"
-                            style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"
-                        >Загрузка…</iframe>
+                        <!-- ВАША GOOGLE ФОРМА -->
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSecd_2opjvhv7uQhgDBlAlqW1Lt7-i7pumOCbQkP0hyyz7czQ/viewform?embedded=true">
+                            Загрузка…
+                        </iframe>
                     </div>
                     
-                    <!-- Правая колонка - Доп. информация -->
-                    <div class="form-info">
+                    <!-- Правая колонка: Преимущества -->
+                    <div>
                         <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Почему стоит обратиться к нам</h3>
                         
                         <div class="info-list">
                             <div class="info-item">
-                                <span>⚡</span>
+                                <span class="icon">⚡</span>
                                 <div>
                                     <strong>Быстрый ответ</strong>
                                     <p>Отвечаем в течение 2 часов в рабочее время</p>
                                 </div>
                             </div>
                             <div class="info-item">
-                                <span>🎯</span>
+                                <span class="icon">🎯</span>
                                 <div>
                                     <strong>Индивидуальный подход</strong>
                                     <p>Подбираем решение под ваши задачи и бюджет</p>
                                 </div>
                             </div>
                             <div class="info-item">
-                                <span>📋</span>
+                                <span class="icon">📋</span>
                                 <div>
                                     <strong>Бесплатная консультация</strong>
-                                    <p>Анализируем задачу и предлагаем варианты решения</p>
+                                    <p>Анализируем задачу и предлагаем варианты</p>
                                 </div>
                             </div>
                             <div class="info-item">
-                                <span>🔒</span>
+                                <span class="icon">🔒</span>
                                 <div>
                                     <strong>Конфиденциальность</strong>
                                     <p>Подписываем NDA, гарантируем защиту данных</p>
@@ -135,10 +279,11 @@
                             </div>
                         </div>
                         
-                        <div style="background: var(--gray-100); padding: 1.5rem; border-radius: 16px; margin-top: 2rem;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Срочный проект?</h4>
-                            <p style="color: var(--text-light); font-size: 0.95rem;">
-                                Звоните напрямую: <strong style="color: var(--accent);">+7 (495) 123-45-67</strong>
+                        <div class="alert-box">
+                            <h4 style="margin-bottom: 0.5rem;">🚀 Срочный проект?</h4>
+                            <p style="color: var(--text-light);">
+                                Звоните напрямую:<br>
+                                <strong>+7 (495) 123-45-67</strong>
                             </p>
                         </div>
                     </div>
@@ -148,10 +293,12 @@
 
         <!-- Карта -->
         <section style="padding: 0;">
-            <div style="width: 100%; height: 400px; background: var(--gray-200); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
-                <span style="font-size: 3rem;">🗺️</span>
-                <p style="color: var(--text-light);">Яндекс.Карта загрузится здесь</p>
-                <p style="color: var(--text-light); font-size: 0.85rem;">Москва, ул. Инженерная, д. 15</p>
+            <div class="container">
+                <div class="map-placeholder">
+                    <span style="font-size: 3rem;">🗺️</span>
+                    <p style="color: var(--text-light);">Здесь будет карта</p>
+                    <p style="color: var(--text-light); font-size: 0.85rem;">Москва, ул. Инженерная, д. 15</p>
+                </div>
             </div>
         </section>
     </main>
@@ -162,7 +309,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>ПромТехСофт</h4>
-                    <p>Разработка ПО для автоматизации производств и 3D-моделирование с 2014 года.</p>
+                    <p>Разработка ПО и 3D-моделирование с 2014 года.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Услуги</h4>
@@ -170,7 +317,6 @@
                         <li><a href="services.html">Автоматизация</a></li>
                         <li><a href="services.html">КОМПАС-3D</a></li>
                         <li><a href="services.html">Siemens NX</a></li>
-                        <li><a href="services.html">ПО на заказ</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -187,110 +333,6 @@
     </footer>
 
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
-
-    <style>
-        .contact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .contact-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: var(--radius);
-            text-align: center;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--gray-200);
-            transition: var(--transition);
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .contact-card-icon {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 0.8rem;
-        }
-        
-        .contact-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-        
-        .contact-card p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .contact-card a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        
-        .contact-grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        
-        .form-wrapper {
-            background: var(--white);
-            border-radius: var(--radius);
-        }
-        
-        .info-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .info-item {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        
-        .info-item span {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            width: 40px;
-            text-align: center;
-        }
-        
-        .info-item strong {
-            display: block;
-            color: var(--primary);
-            margin-bottom: 0.2rem;
-        }
-        
-        .info-item p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .contact-grid-2col {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .contact-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 
     <script src="main.js"></script>
 </body>
