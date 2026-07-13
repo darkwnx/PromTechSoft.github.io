@@ -1,7 +1,297 @@
-<form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="a09e27da-242e-4ea9-9367-4e7fdaf9e82a">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - ПромТехСофт | Свяжитесь с нами</title>
+    <meta name="description" content="Свяжитесь с ПромТехСофт для заказа разработки ПО или 3D-моделирования. Адрес, телефон, форма обратной связи.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">◇</span>
+                    <div>
+                        <h1>Пром<span>Тех</span>Софт</h1>
+                        <p class="tagline">Инженерные решения</p>
+                    </div>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="contacts.html" class="active">Контакты</a></li>
+                </ul>
+                <button class="burger" id="burger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" style="min-height: auto; padding: 6rem 0 3rem;">
+            <div class="container">
+                <span class="badge fade-in">📞 Свяжитесь с нами</span>
+                <h2 class="fade-in">Контакты</h2>
+                <p class="fade-in">Обсудим ваш проект и найдем оптимальное решение</p>
+            </div>
+        </section>
+
+        <!-- Контактная информация -->
+        <section style="padding: 3rem 0;">
+            <div class="container">
+                <div class="contact-cards fade-in">
+                    <div class="contact-card">
+                        <span class="contact-card-icon">📍</span>
+                        <h3>Адрес</h3>
+                        <p>г. Москва, ул. Инженерная, д. 15, офис 402</p>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-card-icon">📞</span>
+                        <h3>Телефон</h3>
+                        <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                        <p><a href="tel:+79267654321">+7 (926) 765-43-21</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-card-icon">✉️</span>
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@promtechsoft.ru">info@promtechsoft.ru</a></p>
+                        <p><a href="mailto:sales@promtechsoft.ru">sales@promtechsoft.ru</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-card-icon">🕐</span>
+                        <h3>Режим работы</h3>
+                        <p>Пн–Пт: 9:00 – 18:00</p>
+                        <p>Сб–Вс: Выходной</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма и карта -->
+        <section style="background: var(--white); padding: 3rem 0;">
+            <div class="container">
+                <div class="contact-grid-2col fade-in">
+                    <!-- Левая колонка - Google Форма -->
+                    <div class="form-wrapper">
+                        <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Оставить заявку</h3>
+                        <p style="text-align: center; color: var(--text-light); margin-bottom: 1.5rem;">
+                            Заполните форму, и мы свяжемся с вами в течение 2 часов
+                        </p>
+                        
+                        <!-- ВСТАВЬТЕ СЮДА ССЫЛКУ ИЗ GOOGLE FORMS -->
+                        <!-- Замените src="..." на вашу ссылку -->
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSecd_2opjvhv7uQhgDBlAlqW1Lt7-i7pumOCbQkP0hyyz7czQ/viewform?embedded=true" 
+                            width="100%" 
+                            height="600" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"
+                        >Загрузка…</iframe>
+                    </div>
+                    
+                    <!-- Правая колонка - Доп. информация -->
+                    <div class="form-info">
+                        <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Почему стоит обратиться к нам</h3>
+                        
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span>⚡</span>
+                                <div>
+                                    <strong>Быстрый ответ</strong>
+                                    <p>Отвечаем в течение 2 часов в рабочее время</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span>🎯</span>
+                                <div>
+                                    <strong>Индивидуальный подход</strong>
+                                    <p>Подбираем решение под ваши задачи и бюджет</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span>📋</span>
+                                <div>
+                                    <strong>Бесплатная консультация</strong>
+                                    <p>Анализируем задачу и предлагаем варианты решения</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span>🔒</span>
+                                <div>
+                                    <strong>Конфиденциальность</strong>
+                                    <p>Подписываем NDA, гарантируем защиту данных</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--gray-100); padding: 1.5rem; border-radius: 16px; margin-top: 2rem;">
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Срочный проект?</h4>
+                            <p style="color: var(--text-light); font-size: 0.95rem;">
+                                Звоните напрямую: <strong style="color: var(--accent);">+7 (495) 123-45-67</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Карта -->
+        <section style="padding: 0;">
+            <div style="width: 100%; height: 400px; background: var(--gray-200); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+                <span style="font-size: 3rem;">🗺️</span>
+                <p style="color: var(--text-light);">Яндекс.Карта загрузится здесь</p>
+                <p style="color: var(--text-light); font-size: 0.85rem;">Москва, ул. Инженерная, д. 15</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ПромТехСофт</h4>
+                    <p>Разработка ПО для автоматизации производств и 3D-моделирование с 2014 года.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="services.html">Автоматизация</a></li>
+                        <li><a href="services.html">КОМПАС-3D</a></li>
+                        <li><a href="services.html">Siemens NX</a></li>
+                        <li><a href="services.html">ПО на заказ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>📍 Москва, ул. Инженерная, 15</p>
+                    <p>📞 +7 (495) 123-45-67</p>
+                    <p>✉️ info@promtechsoft.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 <strong>ПромТехСофт</strong>. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+
+    <style>
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-card-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .contact-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .form-wrapper {
+            background: var(--white);
+            border-radius: var(--radius);
+        }
+        
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .info-item span {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .info-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+        
+        .info-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid-2col {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script src="main.js"></script>
+</body>
+</html>
