@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты - ПромТехСофт | Свяжитесь с нами</title>
-    <meta name="description" content="Свяжитесь с ПромТехСофт для заказа разработки ПО или 3D-моделирования. Адрес, телефон, форма обратной связи.">
+    <meta name="description" content="Свяжитесь с ПромТехСофт в Воронеже для заказа разработки ПО или 3D-моделирования. Адрес, телефон, форма обратной связи.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -131,18 +131,16 @@
             font-size: 1.2rem;
         }
         
-        .map-placeholder {
-            width: 100%;
-            height: 350px;
-            background: var(--gray-200);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1rem;
+        .map-wrapper {
             border-radius: var(--radius);
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        #yandexMap {
+            width: 100%;
+            height: 400px;
         }
         
         @media (max-width: 768px) {
@@ -205,13 +203,13 @@
                     <div class="contact-card">
                         <span class="contact-card-icon">📍</span>
                         <h3>Адрес</h3>
-                        <p>г. Москва, ул. Инженерная, д. 15, офис 402</p>
+                        <p>г. Воронеж, ул. Плехановская, д. 11</p>
                     </div>
                     <div class="contact-card">
                         <span class="contact-card-icon">📞</span>
                         <h3>Телефон</h3>
-                        <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
-                        <p><a href="tel:+79267654321">+7 (926) 765-43-21</a></p>
+                        <p><a href="tel:+74732000000">+7 (473) 200-00-00</a></p>
+                        <p><a href="tel:+79200000000">+7 (920) 000-00-00</a></p>
                     </div>
                     <div class="contact-card">
                         <span class="contact-card-icon">✉️</span>
@@ -229,22 +227,28 @@
             </div>
         </section>
 
+        <!-- Карта -->
+        <section style="padding: 0 0 3rem;">
+            <div class="container">
+                <div class="map-wrapper fade-in">
+                    <div id="yandexMap"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Форма + Информация -->
         <section style="background: var(--white); padding: 3rem 0;">
             <div class="container">
                 <div class="form-section fade-in">
-                    <!-- Левая колонка: Google Форма -->
                     <div class="form-container">
                         <h3>Оставить заявку</h3>
                         <p>Заполните форму, и мы свяжемся с вами в течение 2 часов</p>
                         
-                        <!-- ВАША GOOGLE ФОРМА -->
                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSecd_2opjvhv7uQhgDBlAlqW1Lt7-i7pumOCbQkP0hyyz7czQ/viewform?embedded=true">
                             Загрузка…
                         </iframe>
                     </div>
                     
-                    <!-- Правая колонка: Преимущества -->
                     <div>
                         <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Почему стоит обратиться к нам</h3>
                         
@@ -283,27 +287,15 @@
                             <h4 style="margin-bottom: 0.5rem;">🚀 Срочный проект?</h4>
                             <p style="color: var(--text-light);">
                                 Звоните напрямую:<br>
-                                <strong>+7 (495) 123-45-67</strong>
+                                <strong>+7 (473) 200-00-00</strong>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Карта -->
-        <section style="padding: 0;">
-            <div class="container">
-                <div class="map-placeholder">
-                    <span style="font-size: 3rem;">🗺️</span>
-                    <p style="color: var(--text-light);">Здесь будет карта</p>
-                    <p style="color: var(--text-light); font-size: 0.85rem;">Москва, ул. Инженерная, д. 15</p>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Футер -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -321,8 +313,8 @@
                 </div>
                 <div class="footer-col">
                     <h4>Контакты</h4>
-                    <p>📍 Москва, ул. Инженерная, 15</p>
-                    <p>📞 +7 (495) 123-45-67</p>
+                    <p>📍 Воронеж, Плехановская, 11</p>
+                    <p>📞 +7 (473) 200-00-00</p>
                     <p>✉️ info@promtechsoft.ru</p>
                 </div>
             </div>
@@ -334,6 +326,51 @@
 
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
+    <!-- Яндекс.Карты с вашим API-ключом -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ef835738-e8f3-4b3b-853a-b0b6c0dcfc47&lang=ru_RU" type="text/javascript"></script>
+    
+    <script>
+        function initMap() {
+            var myMap = new ymaps.Map("yandexMap", {
+                center: [51.660781, 39.200296],
+                zoom: 16,
+                controls: ['zoomControl', 'fullscreenControl']
+            });
+            
+            var myPlacemark = new ymaps.Placemark(
+                [51.660781, 39.200296],
+                {
+                    hintContent: 'ПромТехСофт',
+                    balloonContent: `
+                        <div style="font-family: 'Inter', sans-serif; padding: 10px;">
+                            <strong style="font-size: 16px; color: #0a1628;">ПромТехСофт</strong><br>
+                            <p style="margin: 5px 0; color: #636e72;">Разработка ПО и 3D-моделирование</p>
+                            <p style="margin: 5px 0;">📍 г. Воронеж, ул. Плехановская, д. 11</p>
+                            <p style="margin: 5px 0;">📞 +7 (473) 200-00-00</p>
+                            <p style="margin: 5px 0;">✉️ info@promtechsoft.ru</p>
+                        </div>
+                    `
+                },
+                {
+                    iconLayout: 'default#image',
+                    iconImageHref: 'data:image/svg+xml;base64,' + btoa(`
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" viewBox="0 0 40 50">
+                            <path d="M20 0C8.95 0 0 8.95 0 20c0 15 20 30 20 30s20-15 20-30C40 8.95 31.05 0 20 0z" fill="#00d4aa" stroke="#0a1628" stroke-width="2"/>
+                            <circle cx="20" cy="20" r="8" fill="white"/>
+                            <text x="20" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#0a1628">◇</text>
+                        </svg>
+                    `),
+                    iconImageSize: [40, 50],
+                    iconImageOffset: [-20, -50]
+                }
+            );
+            
+            myMap.geoObjects.add(myPlacemark);
+        }
+        
+        ymaps.ready(initMap);
+    </script>
+    
     <script src="main.js"></script>
 </body>
 </html>
