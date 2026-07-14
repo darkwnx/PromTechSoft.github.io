@@ -88,23 +88,38 @@
         .burger.active span:nth-child(2) { opacity: 0; }
         .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* СУПЕР-КОМПАКТНЫЙ HERO */
-        .page-header {
+        /* КОМПАКТНЫЙ HERO С ПОЛНЫМ ТЕКСТОМ */
+        .hero {
             background: linear-gradient(135deg, var(--primary), #1a2d47);
             color: white;
-            padding: 1.8rem 0 1.5rem;
+            padding: 2rem 0 1.8rem;
             text-align: center;
         }
 
-        .page-header h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
+        .badge {
+            display: inline-block;
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            border: 1px solid rgba(0, 212, 170, 0.2);
         }
 
-        .page-header p {
-            color: var(--gray-400);
-            font-size: 0.85rem;
+        .hero h2 { 
+            font-size: 1.6rem; 
+            font-weight: 800; 
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+
+        .hero p { 
+            color: var(--gray-300); 
+            font-size: 0.9rem;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         section { padding: 2rem 0; }
@@ -645,9 +660,9 @@
             .burger { display: flex; }
             .nav-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--primary); flex-direction: column; padding: 2rem; text-align: center; gap: 1rem; z-index: 1000; }
             .nav-menu.active { display: flex; }
-            .page-header { padding: 1.5rem 0 1.2rem; }
-            .page-header h1 { font-size: 1.3rem; }
-            .page-header p { font-size: 0.8rem; }
+            .hero { padding: 1.5rem 0 1.2rem; }
+            .hero h2 { font-size: 1.4rem; }
+            .hero p { font-size: 0.8rem; }
             .contact-cards { grid-template-columns: repeat(2, 1fr); }
             .info-grid { grid-template-columns: 1fr; }
             .requisites-grid { grid-template-columns: repeat(2, 1fr); }
@@ -700,13 +715,14 @@
             ⚠️ Демонстрационный сайт. Компания не является реальным юридическим лицом. Учебный проект.
         </div>
 
-        <!-- СУПЕР-КОМПАКТНЫЙ ЗАГОЛОВОК -->
-        <div class="page-header">
+        <!-- КОМПАКТНЫЙ HERO С ПОЛНЫМ ТЕКСТОМ -->
+        <section class="hero">
             <div class="container">
-                <h1>📞 Контакты</h1>
+                <span class="badge">📞 Свяжитесь с нами</span>
+                <h2>Контакты</h2>
                 <p>Обсудим ваш проект и найдем оптимальное решение</p>
             </div>
-        </div>
+        </section>
 
         <!-- Основные контакты -->
         <section>
