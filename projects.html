@@ -302,7 +302,7 @@
             box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4); 
         }
 
-        /* Модальное окно проекта */
+        /* Модальное окно */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -310,17 +310,15 @@
             background: rgba(10, 22, 40, 0.9);
             backdrop-filter: blur(15px);
             z-index: 2000;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
             padding: 20px;
         }
 
-        .modal-overlay.active { opacity: 1; pointer-events: all; }
-        .modal-overlay.closing { opacity: 0; pointer-events: none; }
+        .modal-overlay.active {
+            display: flex;
+        }
 
         .modal {
             background: white;
@@ -329,26 +327,27 @@
             max-width: 700px;
             max-height: 85vh;
             overflow-y: auto;
-            transform: scale(0.7) translateY(40px);
-            opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
             box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            position: relative;
         }
-
-        .modal-overlay.active .modal { transform: scale(1) translateY(0); opacity: 1; }
-        .modal-overlay.closing .modal { transform: scale(0.7) translateY(40px); opacity: 0; }
 
         .modal-header {
             padding: 2rem 2rem 0;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            border-radius: 24px 24px 0 0;
         }
 
         .modal-header h3 {
             font-size: 1.5rem;
             color: var(--primary);
             flex: 1;
+            padding-right: 1rem;
         }
 
         .modal-close {
@@ -543,6 +542,7 @@
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
             .modal-results { grid-template-columns: repeat(2, 1fr); }
             .project-results { grid-template-columns: 1fr 1fr; }
+            .modal { max-width: 100%; }
         }
 
         @media (max-width: 480px) {
@@ -635,7 +635,7 @@
             <div class="container">
                 <div class="projects-grid" id="projectsGrid">
                     
-                    <!-- Проект 1: SCADA для машиностроительного завода -->
+                    <!-- Проект 1: SCADA -->
                     <article class="project-card" data-category="automation">
                         <div class="project-header">
                             <div class="project-icon icon-automation">🏭</div>
@@ -676,7 +676,7 @@
                         </div>
                     </article>
 
-                    <!-- Проект 2: Siemens NX для авиационного двигателя -->
+                    <!-- Проект 2: Siemens NX -->
                     <article class="project-card" data-category="modeling">
                         <div class="project-header">
                             <div class="project-icon icon-modeling">✈️</div>
@@ -716,7 +716,7 @@
                         </div>
                     </article>
 
-                    <!-- Проект 3: WMS для склада -->
+                    <!-- Проект 3: WMS -->
                     <article class="project-card" data-category="software">
                         <div class="project-header">
                             <div class="project-icon icon-software">📦</div>
@@ -757,7 +757,7 @@
                         </div>
                     </article>
 
-                    <!-- Проект 4: АСУ ТП для нефтепереработки -->
+                    <!-- Проект 4: АСУ ТП -->
                     <article class="project-card" data-category="automation">
                         <div class="project-header">
                             <div class="project-icon icon-automation">⛽</div>
@@ -798,7 +798,7 @@
                         </div>
                     </article>
 
-                    <!-- Проект 5: Реверс-инжиниринг в КОМПАС-3D -->
+                    <!-- Проект 5: Реверс-инжиниринг -->
                     <article class="project-card" data-category="modeling">
                         <div class="project-header">
                             <div class="project-icon icon-modeling">🔧</div>
@@ -838,7 +838,7 @@
                         </div>
                     </article>
 
-                    <!-- Проект 6: MES для пищевого производства -->
+                    <!-- Проект 6: MES -->
                     <article class="project-card" data-category="software">
                         <div class="project-header">
                             <div class="project-icon icon-software">🍞</div>
@@ -895,7 +895,7 @@
         </section>
     </main>
 
-    <!-- Модальные окна проектов -->
+    <!-- Модальное окно -->
     <div class="modal-overlay" id="projectModal">
         <div class="modal" id="modalContent"></div>
     </div>
@@ -932,13 +932,12 @@
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
     <script>
-        // Данные проектов для модальных окон
+        // Данные проектов
         const projectsData = {
             project1: {
                 title: 'SCADA-система для мониторинга 150+ станков с ЧПУ',
                 client: 'ОАО "Воронежский машиностроительный завод"',
                 year: '2023',
-                description: 'Полная модернизация системы мониторинга производственного оборудования.',
                 details: `
                     <h4>📋 Задача</h4>
                     <p>Завод использовал устаревшую систему мониторинга, которая не позволяла отслеживать состояние оборудования в реальном времени. Простои из-за несвоевременного обслуживания достигали 15% рабочего времени.</p>
@@ -979,7 +978,6 @@
                 title: 'Проектирование компонентов авиационного двигателя в Siemens NX',
                 client: 'АО "Авиационные технологии"',
                 year: '2023',
-                description: 'Высокоточное 3D-моделирование и конструкторская документация.',
                 details: `
                     <h4>📋 Задача</h4>
                     <p>Требовалось создать 3D-модели и конструкторскую документацию для компонентов авиационного двигателя с допусками до 0.001 мм. Проект включал поверхностное моделирование сложной геометрии.</p>
@@ -1007,7 +1005,6 @@
                 title: 'Система управления складом (WMS) с интеграцией в 1С',
                 client: 'ООО "ЛогистикПром"',
                 year: '2023',
-                description: 'Комплексная автоматизация складской логистики.',
                 details: `
                     <h4>📋 Задача</h4>
                     <p>Клиент использовал ручной учёт товаров, что приводило к ошибкам и замедляло обработку заказов. Требовалась WMS-система с интеграцией в 1С и оборудование штрихкодирования.</p>
@@ -1036,7 +1033,6 @@
                 title: 'АСУ ТП для нефтеперерабатывающего завода',
                 client: 'ПАО "Нефтехим"',
                 year: '2022',
-                description: 'Автоматизация технологического процесса переработки нефти.',
                 details: `
                     <h4>📋 Задача</h4>
                     <p>Нефтеперерабатывающий завод нуждался в модернизации системы управления. Старая АСУ ТП не обеспечивала требуемый уровень безопасности и эффективности.</p>
@@ -1065,7 +1061,6 @@
                 title: 'Реверс-инжиниринг импортных деталей в КОМПАС-3D',
                 client: 'ЗАО "Промдеталь"',
                 year: '2023',
-                description: 'Импортозамещение через восстановление документации.',
                 details: `
                     <h4>📋 Задача</h4>
                     <p>В связи с санкциями прекратились поставки импортных деталей. Требовалось восстановить конструкторскую документацию по имеющимся образцам для организации собственного производства.</p>
@@ -1094,7 +1089,6 @@
                 title: 'MES-система для хлебобулочного производства',
                 client: 'ООО "Пищевик"',
                 year: '2023',
-                description: 'Цифровизация производства от сырья до готовой продукции.',
                 details: `
                     <h4>📋 Задача</h4>
                     <p>Производство нуждалось в системе отслеживания партий от поступления сырья до отгрузки готовой продукции. Ручной учёт приводил к потерям и невозможности оперативно выявить причины брака.</p>
@@ -1121,14 +1115,22 @@
             }
         };
 
-        // Открытие модального окна проекта
+        // Открытие модального окна
         function openProjectModal(projectId) {
+            console.log('Opening modal for:', projectId); // Для отладки
+            
             const project = projectsData[projectId];
+            if (!project) {
+                console.error('Project not found:', projectId);
+                return;
+            }
+            
             const modal = document.getElementById('projectModal');
             const modalContent = document.getElementById('modalContent');
             
+            // Формируем HTML для результатов
             let resultsHTML = '';
-            if (project.results) {
+            if (project.results && project.results.length > 0) {
                 resultsHTML = '<div class="modal-results">';
                 project.results.forEach(r => {
                     resultsHTML += `
@@ -1141,6 +1143,7 @@
                 resultsHTML += '</div>';
             }
             
+            // Формируем HTML для отзыва
             let testimonialHTML = '';
             if (project.testimonial) {
                 testimonialHTML = `
@@ -1152,43 +1155,48 @@
                 `;
             }
             
+            // Собираем весь контент
             modalContent.innerHTML = `
                 <div class="modal-header">
                     <h3>${project.title}</h3>
                     <button class="modal-close" onclick="closeProjectModal()">✕</button>
                 </div>
                 <div class="modal-body">
-                    <p style="color: var(--accent); font-weight: 600;">${project.client} • ${project.year}</p>
+                    <p style="color: var(--accent); font-weight: 600; margin-bottom: 1.5rem;">${project.client} • ${project.year}</p>
                     ${project.details}
                     ${resultsHTML}
                     ${testimonialHTML}
                 </div>
             `;
             
-            modal.classList.remove('closing');
+            // Показываем модальное окно
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            console.log('Modal opened successfully'); // Для отладки
         }
 
+        // Закрытие модального окна
         function closeProjectModal() {
             const modal = document.getElementById('projectModal');
-            modal.classList.add('closing');
             modal.classList.remove('active');
-            
-            setTimeout(() => {
-                modal.classList.remove('closing');
-                document.body.style.overflow = '';
-            }, 400);
+            document.body.style.overflow = '';
         }
 
+        // Закрытие по клику на оверлей
         document.getElementById('projectModal').addEventListener('click', function(e) {
-            if (e.target === this) closeProjectModal();
+            if (e.target === this) {
+                closeProjectModal();
+            }
         });
 
+        // Закрытие по Escape
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const modal = document.getElementById('projectModal');
-                if (modal.classList.contains('active')) closeProjectModal();
+                if (modal.classList.contains('active')) {
+                    closeProjectModal();
+                }
             }
         });
 
@@ -1234,6 +1242,8 @@
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        console.log('Projects page initialized'); // Для отладки
     </script>
 </body>
 </html>
