@@ -310,14 +310,17 @@
             background: rgba(10, 22, 40, 0.9);
             backdrop-filter: blur(15px);
             z-index: 2000;
-            display: none;
+            display: none; /* Скрыто по умолчанию */
             align-items: center;
             justify-content: center;
             padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .modal-overlay.active {
             display: flex;
+            opacity: 1;
         }
 
         .modal {
@@ -329,6 +332,12 @@
             overflow-y: auto;
             box-shadow: 0 30px 60px rgba(0,0,0,0.3);
             position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
         }
 
         .modal-header {
@@ -1115,9 +1124,11 @@
             }
         };
 
-        // Открытие модального окна
-        function openProjectModal(projectId) {
-            console.log('Opening modal for:', projectId); // Для отладки
+        // --- ИСПРАВЛЕННЫЙ БЛОК JS ---
+
+        // Открытие модального окна (явно привязываем к window)
+        window.openProjectModal = function(projectId) {
+            console.log('Opening modal for:', projectId);
             
             const project = projectsData[projectId];
             if (!project) {
@@ -1172,78 +1183,76 @@
             // Показываем модальное окно
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            console.log('Modal opened successfully'); // Для отладки
-        }
+        };
 
-        // Закрытие модального окна
-        function closeProjectModal() {
+        // Закрытие модального окна (явно привязываем к window)
+        window.closeProjectModal = function() {
             const modal = document.getElementById('projectModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
-        }
+        };
 
-        // Закрытие по клику на оверлей
-        document.getElementById('projectModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeProjectModal();
-            }
-        });
+        // Обработчики событий (без onclick в HTML для надежности)
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalOverlay = document.getElementById('projectModal');
 
-        // Закрытие по Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const modal = document.getElementById('projectModal');
-                if (modal.classList.contains('active')) {
-                    closeProjectModal();
+            // Закрытие по клику на темный фон (оверлей)
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    window.closeProjectModal();
                 }
-            }
-        });
+            });
 
-        // Фильтрация проектов
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                const filter = this.dataset.filter;
-                document.querySelectorAll('.project-card').forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
+            // Закрытие по Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    window.closeProjectModal();
+                }
+            });
+
+            // Фильтрация проектов
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
                 });
             });
-        });
 
-        // Бургер-меню
-        const burger = document.getElementById('burger');
-        const navMenu = document.getElementById('navMenu');
-        
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('active');
-                navMenu.classList.remove('active');
+            // Бургер-меню
+            const burger = document.getElementById('burger');
+            const navMenu = document.getElementById('navMenu');
+            
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    burger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // Кнопка наверх
+            const scrollTopBtn = document.getElementById('scrollTop');
+            window.addEventListener('scroll', () => {
+                scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+            });
+            
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
-
-        // Кнопка наверх
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-        });
-        
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        console.log('Projects page initialized'); // Для отладки
     </script>
 </body>
 </html>
